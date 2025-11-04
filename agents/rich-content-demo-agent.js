@@ -64,8 +64,10 @@ I showcase all 18 rich content types available in the A1Zap platform. Just type 
 **Visual & Media:**
 • \`carousel\` - Swipeable image carousel
 • \`gallery\` - Photo grid layout
-• \`social_share\` - Social media embed
-• \`social_profile\` - Creator profile card
+• \`social_share\` - Social media embed (TikTok)
+  ↳ Platform-specific: \`tiktok\`, \`instagram\`, \`youtube\`, \`twitter\`, \`vimeo\`, \`twitch\`
+• \`social_profile\` - Creator profile card (Instagram)
+  ↳ Platform-specific: \`tiktok_profile\`, \`instagram_profile\`, \`youtube_profile\`, \`twitter_profile\`, \`vimeo_profile\`, \`twitch_profile\`
 
 **Interactive Elements:**
 • \`button_card\` - Action buttons
