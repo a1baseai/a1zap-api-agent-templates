@@ -62,6 +62,80 @@ class RichContentDemoWebhook extends BaseWebhook {
         response = '👤 Here\'s a **Social Profile** example - creator profile card:';
         break;
 
+      // Platform-specific social shares
+      case 'tiktok':
+      case 'tiktok_share':
+        richContentBlocks = this.getTikTokShareExample();
+        response = '🎵 Here\'s a **TikTok** share example:';
+        break;
+
+      case 'instagram':
+      case 'instagram_share':
+      case 'ig':
+        richContentBlocks = this.getInstagramShareExample();
+        response = '📸 Here\'s an **Instagram** share example:';
+        break;
+
+      case 'youtube':
+      case 'youtube_share':
+      case 'yt':
+        richContentBlocks = this.getYouTubeShareExample();
+        response = '▶️ Here\'s a **YouTube** share example:';
+        break;
+
+      case 'twitter':
+      case 'twitter_share':
+      case 'x':
+        richContentBlocks = this.getTwitterShareExample();
+        response = '🐦 Here\'s a **Twitter/X** share example:';
+        break;
+
+      case 'vimeo':
+      case 'vimeo_share':
+        richContentBlocks = this.getVimeoShareExample();
+        response = '🎬 Here\'s a **Vimeo** share example:';
+        break;
+
+      case 'twitch':
+      case 'twitch_share':
+        richContentBlocks = this.getTwitchShareExample();
+        response = '🎮 Here\'s a **Twitch** share example:';
+        break;
+
+      // Platform-specific social profiles
+      case 'tiktok_profile':
+        richContentBlocks = this.getTikTokProfileExample();
+        response = '🎵 Here\'s a **TikTok Profile** example:';
+        break;
+
+      case 'instagram_profile':
+      case 'ig_profile':
+        richContentBlocks = this.getInstagramProfileExample();
+        response = '📸 Here\'s an **Instagram Profile** example:';
+        break;
+
+      case 'youtube_profile':
+      case 'yt_profile':
+        richContentBlocks = this.getYouTubeProfileExample();
+        response = '▶️ Here\'s a **YouTube Profile** example:';
+        break;
+
+      case 'twitter_profile':
+      case 'x_profile':
+        richContentBlocks = this.getTwitterProfileExample();
+        response = '🐦 Here\'s a **Twitter/X Profile** example:';
+        break;
+
+      case 'vimeo_profile':
+        richContentBlocks = this.getVimeoProfileExample();
+        response = '🎬 Here\'s a **Vimeo Profile** example:';
+        break;
+
+      case 'twitch_profile':
+        richContentBlocks = this.getTwitchProfileExample();
+        response = '🎮 Here\'s a **Twitch Profile** example:';
+        break;
+
       // Interactive Elements
       case 'button_card':
       case 'button card':
@@ -348,7 +422,165 @@ Type \`help\` to see all available commands, or try one of these:
   }
 
   /**
-   * Get social profile example
+   * Get TikTok share example
+   * @returns {Array} Rich content blocks
+   */
+  getTikTokShareExample() {
+    return [{
+      type: 'social_share',
+      data: {
+        platform: 'tiktok',
+        url: 'https://www.tiktok.com/@travelvlogger/video/7234567890123',
+        aspectRatio: '9:16',
+        author: {
+          name: 'Travel Vlogger',
+          handle: '@travelvlogger',
+          avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80'
+        },
+        metrics: {
+          views: 3200000,
+          likes: 580000,
+          comments: 28000,
+          duration: 47
+        }
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Instagram share example
+   * @returns {Array} Rich content blocks
+   */
+  getInstagramShareExample() {
+    return [{
+      type: 'social_share',
+      data: {
+        platform: 'instagram',
+        url: 'https://www.instagram.com/reel/CxYz123ABC/',
+        aspectRatio: '9:16',
+        author: {
+          name: 'Food Explorer',
+          handle: '@foodexplorer',
+          avatarUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80'
+        },
+        metrics: {
+          views: 1800000,
+          likes: 320000,
+          comments: 15000,
+          duration: 32
+        }
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get YouTube share example
+   * @returns {Array} Rich content blocks
+   */
+  getYouTubeShareExample() {
+    return [{
+      type: 'social_share',
+      data: {
+        platform: 'youtube',
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        aspectRatio: '16:9',
+        author: {
+          name: 'Tech Review Channel',
+          handle: '@techreviewchannel',
+          avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80'
+        },
+        metrics: {
+          views: 5400000,
+          likes: 180000,
+          comments: 12000,
+          duration: 842
+        }
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Twitter/X share example
+   * @returns {Array} Rich content blocks
+   */
+  getTwitterShareExample() {
+    return [{
+      type: 'social_share',
+      data: {
+        platform: 'twitter',
+        url: 'https://twitter.com/techinfluencer/status/1234567890123456789',
+        author: {
+          name: 'Tech Influencer',
+          handle: '@techinfluencer',
+          avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80'
+        },
+        metrics: {
+          views: 980000,
+          likes: 45000,
+          comments: 3200
+        }
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Vimeo share example
+   * @returns {Array} Rich content blocks
+   */
+  getVimeoShareExample() {
+    return [{
+      type: 'social_share',
+      data: {
+        platform: 'vimeo',
+        url: 'https://vimeo.com/123456789',
+        aspectRatio: '16:9',
+        author: {
+          name: 'Creative Studio',
+          handle: '@creativestudio',
+          avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&q=80'
+        },
+        metrics: {
+          views: 450000,
+          likes: 28000,
+          duration: 245
+        }
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Twitch share example
+   * @returns {Array} Rich content blocks
+   */
+  getTwitchShareExample() {
+    return [{
+      type: 'social_share',
+      data: {
+        platform: 'twitch',
+        url: 'https://www.twitch.tv/videos/1234567890',
+        aspectRatio: '16:9',
+        author: {
+          name: 'Pro Gamer',
+          handle: '@progamer',
+          avatarUrl: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&q=80'
+        },
+        metrics: {
+          views: 890000,
+          likes: 52000,
+          duration: 7320
+        }
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get social profile example (Instagram)
    * @returns {Array} Rich content blocks
    */
   getSocialProfileExample() {
@@ -367,6 +599,168 @@ Type \`help\` to see all available commands, or try one of these:
           followers: 1250000,
           following: 850,
           posts: 1432
+        },
+        profileType: 'creator'
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get TikTok profile example
+   * @returns {Array} Rich content blocks
+   */
+  getTikTokProfileExample() {
+    return [{
+      type: 'social_profile',
+      data: {
+        platform: 'tiktok',
+        url: 'https://www.tiktok.com/@dancemaster',
+        username: 'Dance Master',
+        handle: '@dancemaster',
+        avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80',
+        bannerUrl: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=900&q=80',
+        bio: '💃 Professional Dancer | Choreographer | Teaching the world to move | Verified Creator',
+        verified: true,
+        metrics: {
+          followers: 8500000,
+          following: 420,
+          posts: 2847
+        },
+        profileType: 'creator'
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Instagram profile example
+   * @returns {Array} Rich content blocks
+   */
+  getInstagramProfileExample() {
+    return [{
+      type: 'social_profile',
+      data: {
+        platform: 'instagram',
+        url: 'https://instagram.com/travelphoto',
+        username: 'Travel Photographer',
+        handle: '@travelphoto',
+        avatarUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&q=80',
+        bannerUrl: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&q=80',
+        bio: '📷 Capturing the world one frame at a time | Published in National Geographic | DM for collabs',
+        verified: true,
+        metrics: {
+          followers: 3200000,
+          following: 650,
+          posts: 1893
+        },
+        profileType: 'creator'
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get YouTube profile example
+   * @returns {Array} Rich content blocks
+   */
+  getYouTubeProfileExample() {
+    return [{
+      type: 'social_profile',
+      data: {
+        platform: 'youtube',
+        url: 'https://www.youtube.com/@TechReviewer',
+        username: 'Tech Reviewer',
+        handle: '@TechReviewer',
+        avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80',
+        bannerUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80',
+        bio: 'In-depth tech reviews and tutorials | New videos every Tuesday & Friday | Business: contact@techreviewer.com',
+        verified: true,
+        metrics: {
+          subscribers: 4500000,
+          views: 280000000,
+          posts: 845
+        },
+        profileType: 'channel'
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Twitter/X profile example
+   * @returns {Array} Rich content blocks
+   */
+  getTwitterProfileExample() {
+    return [{
+      type: 'social_profile',
+      data: {
+        platform: 'twitter',
+        url: 'https://twitter.com/startupfounder',
+        username: 'Startup Founder',
+        handle: '@startupfounder',
+        avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80',
+        bannerUrl: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&q=80',
+        bio: 'Building the future of AI | YC Alum | Angel investor | Sharing lessons from the trenches',
+        verified: true,
+        metrics: {
+          followers: 980000,
+          following: 1200,
+          posts: 12400
+        },
+        profileType: 'user'
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Vimeo profile example
+   * @returns {Array} Rich content blocks
+   */
+  getVimeoProfileExample() {
+    return [{
+      type: 'social_profile',
+      data: {
+        platform: 'vimeo',
+        url: 'https://vimeo.com/filmstudio',
+        username: 'Independent Film Studio',
+        handle: '@filmstudio',
+        avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&q=80',
+        bannerUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=900&q=80',
+        bio: '🎬 Award-winning independent films | Sundance & Cannes | Available for commercial projects',
+        verified: true,
+        metrics: {
+          followers: 125000,
+          views: 15000000,
+          posts: 234
+        },
+        profileType: 'creator'
+      },
+      order: 0
+    }];
+  }
+
+  /**
+   * Get Twitch profile example
+   * @returns {Array} Rich content blocks
+   */
+  getTwitchProfileExample() {
+    return [{
+      type: 'social_profile',
+      data: {
+        platform: 'twitch',
+        url: 'https://www.twitch.tv/esportsstar',
+        username: 'ESports Star',
+        handle: '@esportsstar',
+        avatarUrl: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&q=80',
+        bannerUrl: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=900&q=80',
+        bio: '🎮 Professional League of Legends player | Team Liquid | Streaming scrims & ranked daily | !socials',
+        verified: true,
+        metrics: {
+          followers: 2100000,
+          views: 45000000,
+          posts: 1520
         },
         profileType: 'creator'
       },

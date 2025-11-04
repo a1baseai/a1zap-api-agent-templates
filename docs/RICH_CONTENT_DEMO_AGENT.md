@@ -62,8 +62,22 @@ When a chat starts, the agent automatically sends a welcome message listing all 
 #### Visual & Media
 - `carousel` - Swipeable image carousel with 5 product examples
 - `gallery` - Photo grid with 6 images
-- `social_share` - TikTok video embed example
-- `social_profile` - Instagram creator profile
+- `social_share` - Social media embed (TikTok default)
+  - Platform-specific shares:
+    - `tiktok` or `tiktok_share` - TikTok video embed
+    - `instagram` or `instagram_share` or `ig` - Instagram Reel/post
+    - `youtube` or `youtube_share` or `yt` - YouTube video
+    - `twitter` or `twitter_share` or `x` - Twitter/X post
+    - `vimeo` or `vimeo_share` - Vimeo video
+    - `twitch` or `twitch_share` - Twitch clip/stream
+- `social_profile` - Creator profile card (Instagram default)
+  - Platform-specific profiles:
+    - `tiktok_profile` - TikTok creator profile
+    - `instagram_profile` or `ig_profile` - Instagram profile
+    - `youtube_profile` or `yt_profile` - YouTube channel
+    - `twitter_profile` or `x_profile` - Twitter/X profile
+    - `vimeo_profile` - Vimeo creator profile
+    - `twitch_profile` - Twitch streamer profile
 
 #### Interactive Elements
 - `button_card` or `buttons` - Card with multiple action buttons
@@ -99,6 +113,14 @@ Bot: 🎠 Here's a Carousel example - swipe through these featured products:
 User: poll
 Bot: 📊 Here's a Poll example - vote for your favorite:
 [Displays poll with 5 options]
+
+User: youtube
+Bot: ▶️ Here's a YouTube share example:
+[Displays YouTube video embed with metrics]
+
+User: tiktok_profile
+Bot: 🎵 Here's a TikTok Profile example:
+[Displays TikTok creator profile card]
 
 User: all
 Bot: 🎨 Sending multiple examples! Check them out:
@@ -177,14 +199,72 @@ Bot: 🎨 Sending multiple examples! Check them out:
 
 ### What to Verify
 
-- ✅ Welcome message displays on chat start
-- ✅ All 18 commands work
+- ✅ Welcome message displays on chat start with platform-specific commands
+- ✅ All 18 base commands work
+- ✅ All 12 platform-specific commands work (6 shares + 6 profiles)
 - ✅ Rich content renders correctly
 - ✅ Images load (Unsplash URLs)
 - ✅ Buttons are clickable
 - ✅ Unknown commands show help message
 - ✅ 'all' command sends multiple examples
 - ✅ Test mode is respected (no actual sends)
+- ✅ Platform aliases work (e.g., `ig`, `yt`, `x`)
+
+## Platform-Specific Social Content
+
+### Supported Platforms
+
+The agent now supports platform-specific examples for both social shares and profiles:
+
+**Social Share Platforms:**
+- **TikTok** - Short-form vertical videos (9:16 aspect ratio)
+- **Instagram** - Reels and posts (9:16 or 1:1 aspect ratio)
+- **YouTube** - Standard videos and Shorts (16:9 or 9:16)
+- **Twitter/X** - Posts with media
+- **Vimeo** - High-quality professional videos (16:9)
+- **Twitch** - Gaming streams and clips (16:9)
+
+**Social Profile Platforms:**
+- **TikTok** - Creator profiles with follower metrics
+- **Instagram** - Profiles with posts, followers, following
+- **YouTube** - Channels with subscribers and total views
+- **Twitter/X** - User profiles with tweets count
+- **Vimeo** - Creator profiles with video portfolio
+- **Twitch** - Streamer profiles with live status
+
+### Platform-Specific Features
+
+Each platform example includes realistic data:
+
+**TikTok:**
+- Vertical video format (9:16)
+- Metrics: views, likes, comments, duration
+- Dance/entertainment content focus
+
+**Instagram:**
+- Visual storytelling emphasis
+- Metrics: likes, comments, views
+- Food/travel/lifestyle content
+
+**YouTube:**
+- Longer-form content
+- Metrics: views, likes, subscribers
+- Tech/educational content focus
+
+**Twitter/X:**
+- Text + media hybrid
+- Metrics: likes, retweets, replies
+- News/startup/tech focus
+
+**Vimeo:**
+- Professional/artistic content
+- High production quality
+- Film/creative industry focus
+
+**Twitch:**
+- Gaming/streaming focus
+- Live streaming emphasis
+- Metrics: views, followers
 
 ## Customization
 
